@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<body>
+		<h:dataTable value="#{formationBean.findAll()}" var="entity">
+			<h:column>
+				<h:commandButton value="delete" class="sideContentFiller"	action="#{formationBean.delete(entity)}">
+						<f:ajax render=":mainContent"/>
+				</h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nom</f:facet>
+				<h:outputText value="#{entity.nom}" />
+			</h:column>		
+			<h:column>
+				<f:facet name="header">Début</f:facet>
+				<h:outputText value="#{entity.debut}" />
+			</h:column>		
+			<h:column>
+				<f:facet name="header">Fin</f:facet>
+				<h:outputText value="#{entity.fin}" />
+			</h:column>
+			<h:column>
+				<h:commandButton value="load" class="sideContentFiller"	action="#{facePainter.setSideContent(formationBean.getSideContent())}">
+						<f:actionListener binding="#{formationBean.setCurrentEntity(entity)}" />
+						<f:ajax render=":sideContent"/>
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</body>
+</html>

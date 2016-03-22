@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head/>
+	<body>
+										<ui:include id="header"			src="layout/header.xhtml" />
+			<h:form id="nav">			<ui:include						src="layout/navigation.xhtml" /></h:form>
+			<h:form id="mainContent">	<ui:include						src="#{facePainter.mainContent}" /></h:form>
+			<h:form id="sideContent">	<ui:include 					src="#{facePainter.sideContent}" /></h:form>
+										<ui:include id="footer"			src="layout/footer.xhtml" />
+	</body>
+</html>
