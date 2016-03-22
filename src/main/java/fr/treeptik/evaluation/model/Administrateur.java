@@ -11,16 +11,15 @@ public class Administrateur extends Personne{
 	private static final long serialVersionUID = 1957459832983560983L;
 	
 	
-	
-	public Administrateur() {}
-	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "Administrateur ["+super.toString()+"]";
+		return "Administrateur ["+"id=" + this.getId() + ", nom=" + this.getNom() + ", prenom=" + this.getPrenom()
+				+ ", dateDeNaissance=" + this.getDateDeNaissance() + ", description=" + this.getDescription()
+				+ ", email=" + this.getEmail() + ", password=" + this.getPassword()+"]";
 	}
 	
 	

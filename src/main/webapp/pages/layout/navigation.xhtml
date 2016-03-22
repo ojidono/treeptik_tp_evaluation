@@ -1,11 +1,11 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html 
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 	<body>
+		<h:form id="nav">
 			<ul>
 				<li><h:commandLink value="Admin"		id="administrateur_link"	action="#{facePainter.setMainContent(administrateurBean.getMainContent())}">	<f:ajax render=":mainContent"/>	</h:commandLink></li>
 				<li><h:commandLink value="Stagiaire"	id="stagiaire_link"			action="#{facePainter.setMainContent(stagiaireBean.getMainContent())}">			<f:ajax render=":mainContent"/>	</h:commandLink></li>
@@ -13,5 +13,6 @@
 				<li><h:commandLink value="Session"		id="session_link"			action="#{facePainter.setMainContent(sessionBean.getMainContent())}">			<f:ajax render=":mainContent"/>	</h:commandLink></li>
 				<li><h:commandLink value="Formation"	id="formation_link"			action="#{facePainter.setMainContent(formationBean.getMainContent())}">			<f:ajax render=":mainContent"/>	</h:commandLink></li>
 			</ul>
+		</h:form>
 	</body>
 </html>

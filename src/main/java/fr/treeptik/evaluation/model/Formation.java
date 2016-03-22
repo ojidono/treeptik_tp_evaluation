@@ -38,11 +38,6 @@ public class Formation implements Serializable {
 	private Session session;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Formateur formateur;
-	
-	
-	
-	public Formation() {
-	}
 
 
 	public Long getId() {

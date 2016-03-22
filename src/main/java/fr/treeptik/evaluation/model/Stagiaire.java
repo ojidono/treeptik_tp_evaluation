@@ -22,11 +22,6 @@ public class Stagiaire extends Personne{
 	@ManyToMany(mappedBy = "stagiaires", fetch = FetchType.LAZY)
 	private List<Session> sessions;
 
-	
-	
-	public Stagiaire() {
-	}
-
 
 	@XmlTransient
 	@JsonIgnore
@@ -40,9 +35,10 @@ public class Stagiaire extends Personne{
 		return serialVersionUID;
 	}
 
-
 	public String toString() {
-		return "Stagiaire ["+super.toString() + "]";
+		return "Stagiaire ["+"id=" + this.getId() + ", nom=" + this.getNom() + ", prenom=" + this.getPrenom()
+				+ ", dateDeNaissance=" + this.getDateDeNaissance() + ", description=" + this.getDescription() 
+				+ ", email=" + this.getEmail() + ", password=" + this.getPassword() + "]";
 	}
 	
 	

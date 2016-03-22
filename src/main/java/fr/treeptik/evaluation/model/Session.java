@@ -46,11 +46,6 @@ public class Session implements Serializable{
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Stagiaire> stagiaires;
 
-	
-	
-	public Session() {
-	}
-
 
 	public Long getId() {
 		return id;

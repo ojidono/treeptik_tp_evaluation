@@ -1,10 +1,10 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 	
 	<body>
+	<h:form id="mainContent">
 		<h:dataTable value="#{stagiaireBean.findAll()}" var="entity">
 			<h:column>
 				<h:commandButton value="delete" class="sideContentFiller"	action="#{stagiaireBean.delete(entity)}">
@@ -18,15 +18,7 @@
 			<h:column>
 				<f:facet name="header">Prenom</f:facet>
 				<h:outputText value="#{entity.prenom}" />
-			</h:column>		
-			<h:column>
-			<f:facet name="header">DateDeNaisssance</f:facet>
-				<h:outputText value="#{entity.dateDeNaissance}" />
-			</h:column>		
-			<h:column>
-				<f:facet name="header">Description</f:facet>
-				<h:outputText value="#{entity.description}" />
-			</h:column>		
+			</h:column>			
 			<h:column>
 			<f:facet name="header">Mèl</f:facet>
 				<h:outputText value="#{entity.email}" />
@@ -38,5 +30,6 @@
 				</h:commandButton>
 			</h:column>
 		</h:dataTable>
+		</h:form>
 	</body>
 </html>

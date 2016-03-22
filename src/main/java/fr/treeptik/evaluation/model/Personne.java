@@ -35,13 +35,10 @@ public class Personne implements Serializable{
 	private Date dateDeNaissance; 
 	@Column(length = 90000)
 	private String description;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
-	
-	
-	
-	public Personne() {
-	}
 	
 	
 	public Long getId() {
@@ -126,12 +123,6 @@ public class Personne implements Serializable{
 	}
 
 
-	@Override
-	public String toString() {
-		return "id=" + id + ", nom=" + nom + ", prenom=" + prenom
-				+ ", dateDeNaissance=" + dateDeNaissance + ", description="
-				+ description + ", email=" + email + ", password=" + password;
-	}
 	
 	
 

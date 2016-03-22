@@ -23,11 +23,6 @@ public class Formateur extends Personne{
 	@OneToMany(mappedBy = "formateur", fetch = FetchType.LAZY)
 	private List<Formation> formations;
 
-	
-
-	public Formateur() {
-	}
-
 
 	@XmlTransient
 	@JsonIgnore
@@ -44,7 +39,9 @@ public class Formateur extends Personne{
 
 	@Override
 	public String toString() {
-		return "Formateur ["+super.toString()+"]";
+		return "Formateur ["+"id=" + this.getId() + ", nom=" + this.getNom() + ", prenom=" + this.getPrenom()
+				+ ", dateDeNaissance=" + this.getDateDeNaissance() + ", description="
+				+ this.getDescription() + ", email=" + this.getEmail() + ", password=" + this.getPassword()+"]";
 	}
 	
 	
