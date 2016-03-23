@@ -5,11 +5,11 @@
 	
 	<body>
 	<h:form id="mainContent">
-		<h:dataTable value="#{formationBean.findAll()}" var="entity">
 			<h:commandButton value="ajout" class="sideContentFiller"	action="#{facePainter.setSideContent(formationBean.getSideContent())}">
 					<f:actionListener binding="#{formationBean.newEntity()}" />
 					<f:ajax render=":sideContent"/>
 			</h:commandButton>
+		<h:dataTable value="#{formationBean.findAll()}" var="entity">
 			<h:column>
 				<h:commandButton value="delete" class="sideContentFiller"	action="#{formationBean.delete(entity)}">
 						<f:ajax render=":mainContent"/>

@@ -2,16 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	
 	<body>
 		<h:form id="sideContent" action="#{formationBean.save}">
 			<c:if test="#{not empty formationBean.currentEntity}">
-				<h:inputText name="id"			value="#{formationBean.currentEntity.id}" />
-				<h:inputText name="nom"			value="#{formationBean.currentEntity.nom}" />
-				<h:inputText name="debut"		value="#{formationBean.currentEntity.debut}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
-				<h:inputText name="fin"			value="#{formationBean.currentEntity.fin}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
-				<h:inputText name="description"	value="#{formationBean.currentEntity.description}" />
+				<h:inputText a:placeholder="id"				value="#{formationBean.currentEntity.id}" />
+				<h:inputText a:placeholder="nom"			value="#{formationBean.currentEntity.nom}" />
+				<h:inputText a:placeholder="debut"			value="#{formationBean.currentEntity.debut}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText a:placeholder="fin"			value="#{formationBean.currentEntity.fin}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText a:placeholder="description"	value="#{formationBean.currentEntity.description}" />
 				<h:commandButton value="save" action="#{formationBean.save}">
 					<f:ajax execute="@form" render=":mainContent"/>
 				</h:commandButton>

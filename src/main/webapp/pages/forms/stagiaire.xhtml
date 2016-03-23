@@ -2,18 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	
 	<body>
 		<h:form id="sideContent" action="#{stagiaireBean.save}">
 			<c:if test="#{not empty stagiaireBean.currentEntity}">
-				<h:inputText name="id"				value="#{stagiaireBean.currentEntity.id}" />
-				<h:inputText name="nom"				value="#{stagiaireBean.currentEntity.nom}" />
-				<h:inputText name="prenom"			value="#{stagiaireBean.currentEntity.prenom}" />
-				<h:inputText name="dateDeNaissance"	value="#{stagiaireBean.currentEntity.dateDeNaissance}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
-				<h:inputText name="description"		value="#{stagiaireBean.currentEntity.description}" />
-				<h:inputText name="email"			value="#{stagiaireBean.currentEntity.email}" />
-				<h:inputText name="password"		value="#{stagiaireBean.currentEntity.password}" />
+				<h:inputText placeholder="id"					value="#{stagiaireBean.currentEntity.id}" />
+				<h:inputText placeholder="nom"				value="#{stagiaireBean.currentEntity.nom}" />
+				<h:inputText placeholder="prenom"				value="#{stagiaireBean.currentEntity.prenom}" />
+				<h:inputText placeholder="dateDeNaissance"	value="#{stagiaireBean.currentEntity.dateDeNaissance}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText placeholder="description"		value="#{stagiaireBean.currentEntity.description}" />
+				<h:inputText placeholder="email"				value="#{stagiaireBean.currentEntity.email}" />
+				<h:inputText placeholder="password"			value="#{stagiaireBean.currentEntity.password}" />
 				<h:commandButton value="save" action="#{stagiaireBean.save}">
 					<f:ajax execute="@form" render=":mainContent"/>
 				</h:commandButton>
