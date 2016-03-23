@@ -4,32 +4,36 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 	
 	<body>
-	<h:form id="mainContent">
-		<h:dataTable value="#{stagiaireBean.findAll()}" var="entity">
-			<h:column>
-				<h:commandButton value="delete" class="sideContentFiller"	action="#{stagiaireBean.delete(entity)}">
-						<f:ajax render=":mainContent"/>
-				</h:commandButton>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Nom</f:facet>
-				<h:outputText value="#{entity.nom}" />
-			</h:column>		
-			<h:column>
-				<f:facet name="header">Prenom</f:facet>
-				<h:outputText value="#{entity.prenom}" />
-			</h:column>			
-			<h:column>
-			<f:facet name="header">Mèl</f:facet>
-				<h:outputText value="#{entity.email}" />
-			</h:column>	 
-			<h:column>
-				<h:commandButton value="load" class="sideContentFiller"	action="#{facePainter.setSideContent(stagiaireBean.getSideContent())}">
-						<f:actionListener binding="#{stagiaireBean.setCurrentEntity(entity)}" />
-						<f:ajax render=":sideContent"/>
-				</h:commandButton>
-			</h:column>
-		</h:dataTable>
+		<h:form id="mainContent">
+			<h:commandButton value="ajout" class="sideContentFiller"	action="#{facePainter.setSideContent(stagiaireBean.getSideContent())}">
+					<f:actionListener binding="#{stagiaireBean.newEntity()}" />
+					<f:ajax render=":sideContent"/>
+			</h:commandButton>
+			<h:dataTable value="#{stagiaireBean.findAll()}" var="entity">
+				<h:column>
+					<h:commandButton value="delete" class="sideContentFiller"	action="#{stagiaireBean.delete(entity)}">
+							<f:ajax render=":mainContent"/>
+					</h:commandButton>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nom</f:facet>
+					<h:outputText value="#{entity.nom}" />
+				</h:column>		
+				<h:column>
+					<f:facet name="header">Prenom</f:facet>
+					<h:outputText value="#{entity.prenom}" />
+				</h:column>			
+				<h:column>
+				<f:facet name="header">Mèl</f:facet>
+					<h:outputText value="#{entity.email}" />
+				</h:column>	 
+				<h:column>
+					<h:commandButton value="load" class="sideContentFiller"	action="#{facePainter.setSideContent(stagiaireBean.getSideContent())}">
+							<f:actionListener binding="#{stagiaireBean.setCurrentEntity(entity)}" />
+							<f:ajax render=":sideContent"/>
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
 		</h:form>
 	</body>
 </html>

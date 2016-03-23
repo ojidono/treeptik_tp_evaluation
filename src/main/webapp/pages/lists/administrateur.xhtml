@@ -6,6 +6,10 @@
 	<body>
 	<h:form id="mainContent">
 		<h:dataTable value="#{administrateurBean.findAll()}" var="entity">	
+			<h:commandButton value="ajout" class="sideContentFiller"	action="#{facePainter.setSideContent(administrateurBean.getSideContent())}">
+					<f:actionListener binding="#{administrateurBean.newEntity()}" />
+					<f:ajax render=":sideContent"/>
+			</h:commandButton>
 			<h:column>
 				<h:commandButton value="delete" class="sideContentFiller"	action="#{administrateurBean.delete(entity)}">
 						<f:ajax render=":mainContent"/>

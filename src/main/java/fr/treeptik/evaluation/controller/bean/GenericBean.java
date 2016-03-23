@@ -28,6 +28,17 @@ public class GenericBean<T> implements Serializable{
 		return service.find(entityClass, id);
 	}
 
+	public String newEntity() {
+		try {
+			this.currentEntity = entityClass.newInstance();
+		} catch (InstantiationException e) {
+			System.out.println("DAMN");
+		} catch (IllegalAccessException e) {
+			System.out.println("DAMN2");
+		}
+		return (null);
+	}
+
 	public T save() {
 		System.out.println(this.currentEntity);
 		return service.save(this.currentEntity);
