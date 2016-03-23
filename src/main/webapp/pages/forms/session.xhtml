@@ -5,16 +5,20 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	
 	<body>
-	<h:form id="sideContent">
-		<c:if test="#{not empty sessionBean.currentEntity}">
-			<h:inputText value="#{sessionBean.currentEntity.nom}" />
-			<h:inputText value="#{sessionBean.currentEntity.debut}" />
-			<h:inputText value="#{sessionBean.currentEntity.fin}" />
-			<h:inputText value="#{sessionBean.currentEntity.description}" />
-		</c:if>
-		<c:if test="#{empty sessionBean.currentEntity}">
-			<p>Please choose an entity on the list</p>
-		</c:if>
-	</h:form>
+		<h:form id="sideContent" action="#{sessionBean.save}">
+			<c:if test="#{not empty sessionBean.currentEntity}">
+				<h:inputText name="id"			value="#{sessionBean.currentEntity.id}" />
+				<h:inputText name="nom"			value="#{sessionBean.currentEntity.nom}" />
+				<h:inputText name="debut"		value="#{sessionBean.currentEntity.debut}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText name="fin"			value="#{sessionBean.currentEntity.fin}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText name="description"	value="#{sessionBean.currentEntity.description}" />
+				<h:commandButton value="save" action="#{sessionBean.save}">
+					<f:ajax execute="@form" render=":mainContent"/>
+				</h:commandButton>
+			</c:if>
+			<c:if test="#{empty sessionBean.currentEntity}">
+				<p>Please choose an entity on the list</p>
+			</c:if>
+		</h:form>
 	</body>
 </html>

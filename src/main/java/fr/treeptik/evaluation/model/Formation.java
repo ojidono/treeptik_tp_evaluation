@@ -34,9 +34,9 @@ public class Formation implements Serializable {
 	@Column(nullable = false, length = 90000)
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Session session;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Formateur formateur;
 
 

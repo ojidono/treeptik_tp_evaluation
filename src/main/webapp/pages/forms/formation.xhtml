@@ -5,16 +5,20 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	
 	<body>
-	<h:form id="sideContent">
-		<c:if test="#{not empty formationBean.currentEntity}">
-			<h:inputText value="#{formationBean.currentEntity.nom}" />
-			<h:inputText value="#{formationBean.currentEntity.debut}" />
-			<h:inputText value="#{formationBean.currentEntity.fin}" />
-			<h:inputText value="#{formationBean.currentEntity.description}" />
-		</c:if>
-		<c:if test="#{empty formationBean.currentEntity}">
-			<p>Please choose an entity on the list</p>
-		</c:if>
-	</h:form>
+		<h:form id="sideContent" action="#{formationBean.save}">
+			<c:if test="#{not empty formationBean.currentEntity}">
+				<h:inputText name="id"			value="#{formationBean.currentEntity.id}" />
+				<h:inputText name="nom"			value="#{formationBean.currentEntity.nom}" />
+				<h:inputText name="debut"		value="#{formationBean.currentEntity.debut}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText name="fin"			value="#{formationBean.currentEntity.fin}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText name="description"	value="#{formationBean.currentEntity.description}" />
+				<h:commandButton value="save" action="#{formationBean.save}">
+					<f:ajax execute="@form" render=":mainContent"/>
+				</h:commandButton>
+			</c:if>
+			<c:if test="#{empty formationBean.currentEntity}">
+				<p>Please choose an entity on the list</p>
+			</c:if>
+		</h:form>
 	</body>
 </html>

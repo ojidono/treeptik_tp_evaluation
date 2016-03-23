@@ -5,18 +5,22 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	
 	<body>
-	<h:form id="sideContent">
-		<c:if test="#{not empty formateurBean.currentEntity}">
-			<h:inputText value="#{formateurBean.currentEntity.nom}" />
-			<h:inputText value="#{formateurBean.currentEntity.prenom}" />
-			<h:inputText value="#{formateurBean.currentEntity.dateDeNaissance}" />
-			<h:inputText value="#{formateurBean.currentEntity.description}" />
-			<h:inputText value="#{formateurBean.currentEntity.email}" />
-			<h:inputText value="#{formateurBean.currentEntity.password}" />
-		</c:if>
-		<c:if test="#{empty formateurBean.currentEntity}">
-			<p>Please choose an entity on the list</p>
-		</c:if>
-	</h:form>
+		<h:form id="sideContent" action="#{formateurBean.save}">
+			<c:if test="#{not empty formateurBean.currentEntity}">
+				<h:inputText name="id"				value="#{formateurBean.currentEntity.id}" />
+				<h:inputText name="nom"				value="#{formateurBean.currentEntity.nom}" />
+				<h:inputText name="prenom"			value="#{formateurBean.currentEntity.prenom}" />
+				<h:inputText name="dateDeNaissance"	value="#{formateurBean.currentEntity.dateDeNaissance}" ><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+				<h:inputText name="description"		value="#{formateurBean.currentEntity.description}" />
+				<h:inputText name="email"			value="#{formateurBean.currentEntity.email}" />
+				<h:inputText name="password"		value="#{formateurBean.currentEntity.password}" />
+				<h:commandButton value="save" action="#{formateurBean.save}">
+					<f:ajax execute="@form" render=":mainContent"/>
+				</h:commandButton>
+			</c:if>
+			<c:if test="#{empty formateurBean.currentEntity}">
+				<p>Please choose an entity on the list</p>
+			</c:if>
+		</h:form>
 	</body>
 </html>
